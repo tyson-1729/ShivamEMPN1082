@@ -48,7 +48,7 @@ jobs:
     needs: build
     environment:
       name: 'Production'
-      url: shivamempn1082.azurewebsites.net
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     
     steps:
       - name: Download artifact from build job
@@ -66,4 +66,4 @@ jobs:
         with:
           app-name: 'ShivamEMPN1082'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_DC21059760424BCB94E54E8DFD78677C }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_FAAAE9D3BBB64E7A80B40267CEB6565D }}
