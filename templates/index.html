@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 1</title>
+    <style>
+            /* Reset default margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Top navigation bar */
+        a{
+        font-size: 25px;
+        margin : 16px;
+    }
+        .navbar {
+            background-color: black;
+            overflow: hidden;
+            margin-bottom: 14px;
+            height :96px;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+  
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            font-family: Arial, sans-serif;
+        background: #000;
+        }
+
+
+        .carousel {
+            position: relative;
+            width: 100vw; /* Full viewport width */
+            height: 100vh; /* Full viewport height */
+            overflow: hidden;
+        }
+
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease;
+            height: 100%;
+        }
+
+        .carousel-item {
+            min-width: 100%;
+            box-sizing: border-box;
+            height: 100%;
+        }
+
+        .carousel img {      
+            object-fit: cover;
+            width: 1017px;
+            height: 492px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+            margin-top: 90px;
+        }
+
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: #fff;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .prev {
+            left: 590px;
+            bottom: 10px;           
+        }
+
+        .next {
+            bottom: 10px;
+            right: 590px;      
+        }
+
+        .carousel-dots {
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            bottom: 660px;
+        }
+
+        .dot {
+            height: 15px;
+            width: 15px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background-color: #717171;
+        }
+
+        .fancy-box {
+            width: 300px;
+            height: 300px;
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid black;
+            border-radius: 10px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+            background-color: white;
+        }
+
+        #box1 {
+            background-color: #36454F;
+            width: 700px;
+            height: 300px;
+        }
+        .boxes{
+        display: flex;
+        justify-content: center;
+        position: relative;
+        bottom: 538px;
+        }
+        .name1{
+        color: whitesmoke;
+        font-size: 20px;
+        }
+        .c{
+        font-size: x-large;
+        color: bisque;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="{{ url_for('home') }}" >Task 1</a>
+        <a href="{{ url_for('task2') }}">Task 2</a>
+        <a href="{{ url_for('task3') }}">Task 3</a>
+    </div>
+
+    <div class="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://images.unsplash.com/photo-1595265677860-9a3168007dc0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" alt="Image 1">
+            </div>
+            <div class="carousel-item">
+                <img src="https://images.unsplash.com/photo-1594786118579-95ba90c801ec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" alt="Image 2">
+            </div>
+            <div class="carousel-item">
+                <img src="https://images.unsplash.com/photo-1509339022327-1e1e25360a41?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" alt="Image 3">
+            </div>
+            <div class="carousel-item">
+              <img src="https://images.unsplash.com/photo-1592989819277-a3aafa40c66a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" alt="">
+          </div>
+          <div class="carousel-item">
+            <img src="https://images.unsplash.com/photo-1509339022327-1e1e25360a41?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" alt="Image 3">
+        </div>
+        </div>
+        <a class="carousel-control prev" onclick="prevSlide()">&#10094;</a>
+        <a class="carousel-control next" onclick="nextSlide()">&#10095;</a>
+        <div class="carousel-dots">
+            <span class="dot active" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+            <span class="dot" onclick="currentSlide(5 )"></span>
+        </div>
+    </div>
+        
+      
+   <div class="boxes">
+      <div class="fancy-box" id="box1">
+        <h2><span class="c">Created by: </span><br><span class="name1">Shivam Garg <br>  <span class="emp">Employee ID: </span> EMPN1082 <br> MAQ Software</span> </h2>
+       <br> <h2><span class="c">Tech Stack Used: </span><br><span class="name1">
+          <ul>
+              <li>Node Js</li>
+              <li>Express</li>
+              <li>Azure App services</li>
+              <li>HTML, CSS , Javascript</li>
+              <li>SQL Server</li>
+          </ul>
+       </span> </h2>
+      </div>
+    <div class="fancy-box" id="box1">
+      <h2><span class="c">Information 2 </span><br><span class="name1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Modm tempora illum fuga laboriosam officia suscipit ut. Dicta veritatis necessitatibus, obcaecati,Lorem ipsum dolor sit amet consectetur adipisicing elit. Modm tempora illum fuga laboriosam officia suscipit ut. Dicta veritatis necessitatibus, obcaecati,Lorem ipsum dolor sit amet consectetur adipisicing elit. Modm tempora illum fuga laboriosam officia suscipit ut. Dicta veritatis necessitatibus, obcaecati,</span> </h2>
+  </div>
+    </div>
+  
+  
+  <script>
+      let currentIndex = 0;
+      function showSlide(index) {
+          const slides = document.querySelectorAll('.carousel-item');
+          const dots = document.querySelectorAll('.dot');
+          if (index >= slides.length) currentIndex = 0;
+          if (index < 0) currentIndex = slides.length - 1;
+          slides.forEach((slide, i) => {
+              slide.style.display = i === currentIndex ? 'block' : 'none';
+              dots[i].className = dots[i].className.replace(' active', '');
+          });
+          dots[currentIndex].className += ' active';
+      }
+  
+      function nextSlide() {
+          currentIndex++;
+          showSlide(currentIndex);
+      }
+  
+      function prevSlide() {
+          currentIndex--;
+          showSlide(currentIndex);
+      }
+  
+      function currentSlide(index) {
+          currentIndex = index - 1;
+          showSlide(currentIndex);
+      }
+  
+      document.addEventListener('DOMContentLoaded', () => {
+          showSlide(currentIndex);
+      }); 
+      </script>
+</body>
+
+</html>

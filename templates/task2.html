@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Task 2</title>
+    <style>
+        .table-container{
+            width: 100%;
+            max-width: 100%;
+            overflow-x: auto;
+        }
+        table{
+            width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    th {
+      background-color:  #d0daaf;
+    }
+    * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+      }
+
+      /* Top navigation bar */
+    a{
+    font-size: 25px;
+    margin : 16px;
+    }
+    .navbar {
+        background-color: black;
+        overflow: hidden;
+        margin-bottom: 20px;
+        height :96px;
+    }
+
+    .navbar a {
+        float: left;
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+    td{
+      color: white;
+    }
+    h1{
+      color:yellow;
+      padding-left: 20px;
+    }
+    body {
+            margin: 0;
+            padding: 0;
+            background-color: #352f36;
+            font-family: Arial, sans-serif;
+        background: #352f36;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="{{ url_for('home') }}" >Task 1</a>
+        <a href="{{ url_for('task2') }}">Task 2</a>
+        <a href="{{ url_for('task3') }}">Task 3</a>
+    </div>
+
+    <h1>Data from Azure SQL Database</h1>
+    <div class="table-container">
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    {% for column in columns %}
+                    <th>{{ column }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in rows %}
+                <tr>
+                    {% for item in row %}
+                    <td>{{ item }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
